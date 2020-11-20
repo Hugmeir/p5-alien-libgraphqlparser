@@ -43,6 +43,8 @@ requires:
   Alien::Build::Plugin::Build::CMake: '0'
   Alien::Build::Plugin::Download::GitHub: '0'
   perl: '5.006'
+resources:
+  repository: https://github.com/Hugmeir/p5-alien-libgraphqlparser
 version: '0.01'
 x_alienfile:
   generated_by: 'Alien::Build::MM version 2.37'
