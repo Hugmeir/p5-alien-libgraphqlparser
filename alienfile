@@ -1,0 +1,24 @@
+use alienfile;
+
+plugin 'PkgConfig' => 'libgraphqlparser';
+
+share {
+    plugin 'Download::GitHub' => (
+        github_user => 'hugmeir',
+        github_repo => 'libgraphqlparser',
+    );
+
+    plugin 'Build::CMake' => ();
+    plugin 'Gather::IsolateDynamic';
+    build [
+        [
+            '%{cmake}',
+                '.',
+                @{ meta->prop->{plugin_build_cmake}->{args} },,
+                '%{.install.extract}',
+        ],
+        '%{make}',
+        '%{make} install',
+    ];
+};
+
